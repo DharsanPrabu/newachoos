@@ -2,26 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+::placeholder {
+  color: red;
+  opacity: 1; /* Firefox */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+::-ms-input-placeholder { /* Edge 12 -18 */
+  color: red;
+}
+::-webkit-input-placeholder{
+
+ color: black;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* Target all input elements with the placeholder pseudo-element */
+input::placeholder {
+  color: black; /* Change the color to your desired color */
+}
+
+/* Or, if you want to target a specific input element by its ID or class */
+#myInput::placeholder {
+  color: black;
+}
+
+/* Or, by class */
+.myInputClass::placeholder {
+  color: black;
 }
